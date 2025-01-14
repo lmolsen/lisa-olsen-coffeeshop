@@ -1,0 +1,132 @@
+/*pseudo-elements*/
+::selection {
+    color: #FFF;
+    background-color: #5BACC3;
+}
+
+::-moz-selection {
+    color: #FFF;
+    background-color: #5BACC3;
+}
+
+/*buttons*/
+button {
+    background-color: #5BACC3;
+    cursor: pointer;
+    width: 11.25rem;
+    padding: 1rem 1.25rem; /*16px (style guide said 20px but looked too tall), 20px*/
+    border: 0;
+    color:#FFF;
+    font-size: 1.3125rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #393939;
+}
+
+.wrapper {
+    padding: 3.75rem 0;
+}
+
+/*hero*/
+.hero {
+    background-color: #FFF0ED;
+}
+
+.hero__container {
+    display: inline-block;
+    width:20%;
+    margin: 0 25rem 10rem 10rem;
+}
+
+.hero__title {
+    margin-bottom: 1.25rem;
+}
+
+.hero__text {
+    margin-bottom: 2.5rem;
+}
+
+.hero__image {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 2.5rem 0 2.5rem 13.75rem;
+}
+
+/*products*/
+.product {
+    text-align: center;
+    background-color: #F7F7F7;
+}
+
+.product__title {
+    margin-bottom: 3.75rem;
+    padding-top: 3.75rem;
+}
+
+/*cards*/
+.card {
+    background-color: #FFF;
+    box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0,0,0,0.25);
+    transition: 0.5s;
+    border-radius: .625rem;
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 20.625rem;
+    min-height: 27.5rem;
+    /* box-sizing: content-box; too short if border-box */
+    margin: 0 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.card__img {
+    height: 17.5rem;
+    padding-top: 2.5rem;
+}
+
+.card__title {
+    margin-top: 2.5rem;
+    margin-bottom: 1.875rem;
+}
+
+.card__price {
+    color: #5BACC3;
+    font-size:  2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
+}
+
+/*discount banner*/
+.banner {
+    width: 65%; /*style guide said 90% but it looked extra long*/
+    margin: auto;
+    padding: 2.5rem 0;
+    margin-top: 15rem;
+    margin-bottom: 15rem;
+}
+
+.banner__text {
+    font-size: 2.8125rem;
+    font-weight: 400;
+}
+
+/*footer*/
+.footer {
+    text-align: center;
+    padding-right: 12.5rem;
+    background-color: #FFF0ED;
+}
+
+.footer__content {
+    display:inline-block;
+    text-align: left;
+    margin: 5rem 0;
+}
+
+.footer__heading {
+    margin-bottom: 1.25rem;
+}
+
+.footer__text {
+    margin-right: 8.75rem;
+}

@@ -1,0 +1,71 @@
+/*basic tag*/
+main {
+    text-align: center;
+}
+
+/*background*/
+.hero {
+    background-image:url("../assets/images/coffee-circle.jpg");
+    width: 100%;
+    height: 43.75rem;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero__title {
+    height: 12.5rem;
+    width: 18.75rem;
+    margin: auto;
+}
+
+/*submenu navigation*/
+.subnav {
+    width: 100%;
+    height: 5rem;
+    line-height: 5rem; 
+}
+
+.subnav__link {
+    color: #FFF;
+    text-decoration: none;
+    border-left: 0.25rem solid #5BACC3;
+    padding: 0 1.25rem;
+}
+
+.subnav__item {
+    font-size: 1.3125rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/*products*/
+.product {
+    padding-bottom: 2.5rem;
+}
+.odd {
+    background-color: #FFF0ED;
+}
+
+.even {
+    background-color: #F7F7F7;
+}
+
+.product__category {
+    padding: 1.25rem 0;
+}
+
+.product__title {
+    margin-top: 1.25rem;
+}
+
+.product__description {
+    font-style: italic;
+    color: #393939;
+    width: 26%;
+    margin: auto;
+    padding: 0.25rem 0;
+}
+
+.product__price {
+    color: #5BACC3;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Coffee Shop - Menu</title>
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" role="navigation">
+                <div class="navbar__container">
+                    <a class="navbar__link" href="../index.html">
+                        <img class="navbar__logo icon" src="../assets/logos/coffee-beans-logo-and-footer.svg" alt="coffee bean logo">
+                        <h2 class="navbar__heading">nitro</h2> <!--style guide says h3 (33px), but Coffee Shop 4 says h2 (60px), so I went with the latter-->
+                    </a>
+                </div>
+
+                <ul role="list">
+                    <li class="navbar__item"><a href="../index.html" class="navbar__link">ABOUT</a></li> 
+                    <li class="navbar__item"><a href="menu.html" class="navbar__link">MENU</a></li> 
+                    <li class="navbar__item"><a href="menu.html" class="navbar__link">SHOP NOW</a></li> 
+                </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1 class="hero__title highlight-box">MENU</h1>
+    </section>
+
+    <nav class="subnav highlight-box" role="navigation">
+        <ul role="list">
+            <li class="subnav__item"><a href="#section-1" class="subnav__link">Hot Drinks</a></li> 
+            <li class="subnav__item"><a href="#section-2" class="subnav__link">Cold Drinks</a></li> 
+            <li class="subnav__item"><a href="#section-3" class="subnav__link">Pastries</a></li> 
+        </ul>
+    </nav>
+
+    <main>
+        <!--use of section ids for subnavigation menu-->
+        <section class="products">
+            <section id="section-1" class="product odd">
+                <h2 class="product__category">Hot Drinks</h2>
+                    <h3 class="product__title">In-house Brew</h3>
+                        <p class="product__description">Our in-house medium roast is a classic balance between sweet vanilla, nutty hazelnut, and a smooth low acidity to bring everything together.</p>
+                        <p class="product__price">$2.99</p>
+                    <h3 class="product__title">Espresso</h3>
+                        <p class="product__description">A balance between bold and smooth, powerful and sweet, our signature espresso blend is a complex flavor profile. It features strong notes of semi-sweet chocolate and caramel, with mild acidity and a bright floral finish.</p>
+                        <p class="product__price">$4.99</p>
+            </section>
+
+            <section id="section-2" class="product even">
+                <h2 class="product__category">Cold Drinks</h2>
+                    <h3 class="product__title">Cold Brew</h3>
+                        <p class="product__description">Our bright and delicious coffee blend, brewed over ice to give you a cold coffee freshness with all the flavor of our amazing in-house coffee.</p>
+                        <p class="product__price">$3.99</p>
+                    <h3 class="product__title">Iced Chai Latte</h3>
+                        <p class="product__description">A creamy drink with a kick, this drink features spicy chai tea blended with your choice of milk and poured over ice.</p>
+                        <p class="product__price">$6.99</p>
+            </section>
+
+            <section id="section-3" class="product odd">
+                <h2 class="product__category">Pastries</h2>
+                    <h3 class="product__title">Bacon Oatmeal Raisin Cookie</h3>
+                        <p class="product__description">An infused bacon, sugar and egg mixture is folded into a perfect blend of oats, flour, raisins and cinnamon to create a soft and chewy textured cookie.  </p>
+                        <p class="product__price">$3.50</p>
+                    <h3 class="product__title">Blueberry, Lemon and Thyme Muffin</h3>
+                        <p class="product__description">Tart and sweet, this classic blueberry and lemon combination comes with an earthy twist.</p>
+                        <p class="product__price">$2.50</p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Coffee Shop - Home</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/landing.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" role="navigation">
+                <div class="navbar__container">
+                    <a class="navbar__link" href="index.html">
+                        <img class="navbar__logo icon" src="./assets/logos/coffee-beans-logo-and-footer.svg" alt="coffee bean logo">
+                        <h2 class="navbar__heading">nitro</h2> <!--style guide says h3 (33px), but Coffee Shop 4 says h2 (60px), so I went with the latter-->
+                    </a>
+                </div>
+
+                <ul role="list">
+                    <li class="navbar__item"><a href="index.html" class="navbar__link">ABOUT</a></li> 
+                    <lli class="navbar__item"><a href="./pages/menu.html" class="navbar__link">MENU</a></lli> 
+                    <li class="navbar__item"><a href="./pages/menu.html" class="navbar__link">SHOP NOW</a></li> 
+                </ul>
+        </nav>
+    </header>
+        
+    <section class="hero">
+        <div class="hero__container">
+            <h1 class="hero__title">Nitro Coffee</h1>
+            <p class="hero__text">Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species.</p>
+            <a href="./pages/menu.html"><button>Shop now</button></a>
+        </div>
+            <img class="hero__image" src="./assets/images/coffeebeans-hero.png" alt="coffee bag">
+    </section>
+    
+    <main>
+        <section class="product">
+            <h2 class="product__title">Our Products</h2>
+            
+            <article class="card">
+                    <img class="card__img" src="./assets/images/coffeebeans.png" alt="coffee beans"> 
+                    <h3 class="card__title">Coffee Beans</h3>
+                    <p class="card__price">$18.99</p>
+            </article>
+            
+            <article class="card">
+                    <img class="card__img" src="./assets/images/coldbrew.png" alt="cold brew"> 
+                    <h3 class="card__title">Cold Brew</h3>
+                    <p class="card__price">$4.99</p>
+            </article>
+
+            <article class="card"> 
+                    <img class="card__img" src="./assets/images/inhousebrew.png" alt="in-house brew"> 
+                    <h3 class="card__title">In-house Brew</h3>
+                    <p class="card__price">$2.99</p>
+            </article>
+
+                <div class="wrapper">
+                    <a href="./pages/menu.html"><button>View all</button></a>
+                </div>
+        </section>
+            
+        
+        <section class="banner highlight-box">
+            <p class="banner__text">Get 20% off your first order with code: <span style=font-weight:700;>FirstNitro</span></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <h3 class="footer__heading">Address</h3>
+            <p class="footer__text">503 Broadway Penthouse</p>
+            <p class="footer__text">New York</p>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__heading">Hours</h3>
+            <p class="footer__text"><span style="font-weight:700;">Monday - Friday:</span> 9am - 7pm</p>
+            <p class="footer__text"><span style="font-weight:700;">Saturday - Sunday:</span> 10am - 5pm</p>
+        </div>
+
+        <div class="footer__content">
+            <h3 class="footer__heading">Social</h3>
+            <a href="https://www.facebook.com"><img class="icon" src="./assets/logos/Facebook-Icon.svg" alt="facebook"></a>
+            <a href="https://www.yelp.com"><img class="icon" src="./assets/logos/Yelp-Icon.svg" alt="yelp"></a>
+            <a href="https://www.instagram.com"><img class="icon" src="./assets/logos/Instagram-Icon.svg" alt="instagram"></a>
+        </div>
+    </footer>
+</body>
+</html>
