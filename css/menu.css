@@ -10,24 +10,43 @@ main {
     height: 43.75rem;
     background-position: center;
     background-size: cover;
-    align-content: center;
-
+    align-content: center; 
 }
 
-.hero__title {
+.hero__container {
+    background-color: #393939;
     height: 12.5rem;
     width: 18.75rem;
     margin: auto;
+    position: relative;
+    /* z-index: 0; */
+}
+
+.hero__title {
+    color: #FFF;
+    text-align: center;
+}
+
+.hero__border {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid .3125rem #5BACC3;
+    left: -0.9375rem; 
+    top: -0.9375rem;
+} 
 
 /*submenu navigation*/
 .subnav {
     width: 100%;
     height: 5rem;
     align-content: center;
+    background-color: #393939;
+    color: #FFF;
+    text-align: center;
 }
 
 .subnav__link {
@@ -47,6 +66,7 @@ main {
 .product {
     padding-bottom: 2.5rem;
 }
+
 .odd {
     background-color: #FFF0ED;
 }

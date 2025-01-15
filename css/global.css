@@ -26,17 +26,11 @@ p {
 }
 
 ul, li {
-    display: inline-block;
+    display: inline-block; /*ADD flex*/
     list-style-type: none;
 }
 
 /*classes*/
-.highlight-box {
-    background-color: #393939;
-    color: #FFF;
-    text-align: center;
-}
-
 /*pixels work best here*/
 .icon {
     width: 50px;
@@ -65,9 +59,9 @@ ul, li {
 }
 
 .navbar__heading {
-    display: inline-block;
+    display: inline-block; /*ADD flex*/
     color: #393939;
-    line-height: 3.125rem; /*what about this?*/
+    line-height: 3.125rem; /*flex direction row???*/
 }
 
 .navbar__item {
