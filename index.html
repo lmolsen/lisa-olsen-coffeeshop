@@ -29,43 +29,78 @@
         
     <section class="hero">
         <div class="hero__container">
-            <h1 class="hero__title">Nitro Coffee</h1>
-            <p class="hero__text">Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species.</p>
-            <a href="./pages/menu.html"><button>Shop now</button></a>
-        </div>
+            <div class="text__container">
+                <h1 class="hero__title">Nitro Coffee</h1>
+                <p class="hero__text">Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species.</p>
+                <a href="./pages/menu.html"><button>Shop now</button></a>
+            </div>
             <img class="hero__image" src="./assets/images/coffeebeans-hero.png" alt="coffee bag">
+        </div>
     </section>
     
     <main>
         <section class="product">
             <h2 class="product__title">Our Products</h2>
             
-            <article class="card">
-                    <img class="card__img" src="./assets/images/coffeebeans.png" alt="coffee beans"> 
-                    <h3 class="card__title">Coffee Beans</h3>
-                    <p class="card__price">$18.99</p>
-            </article>
-            
-            <article class="card">
-                    <img class="card__img" src="./assets/images/coldbrew.png" alt="cold brew"> 
-                    <h3 class="card__title">Cold Brew</h3>
-                    <p class="card__price">$4.99</p>
-            </article>
+            <section class="product__cards">
+                <article class="card">
+                        <img class="card__img" src="./assets/images/coffeebeans.png" alt="coffee beans"> 
+                 
+                        <div class="card__details">
+                            <div class="card__description">
+                                <h3 class="card__title">Coffee Beans</h3>
+                                <p class="card__quantity">Pack of 3</p>
+                            </div>
+                            <p class="card__price">$19</p>
+                        </div> 
+                </article>
+                
+                <article class="card">
+                        <img class="card__img" src="./assets/images/coldbrew.png" alt="cold brew"> 
+                        <div class="card__details">
+                            <div class="card__description">
+                                <h3 class="card__title">Cold Brew</h3>
+                                <p class="card__quantity">1 can</p>
+                            </div>
+                            <p class="card__price">$5</p>
+                        </div>
+                </article>
 
-            <article class="card"> 
-                    <img class="card__img" src="./assets/images/inhousebrew.png" alt="in-house brew"> 
-                    <h3 class="card__title">In-house Brew</h3>
-                    <p class="card__price">$2.99</p>
-            </article>
+                <article class="card"> 
+                        <img class="card__img" src="./assets/images/inhousebrew.png" alt="in-house brew"> 
+                        <div class="card__details">
+                            <div class="card__description">
+                                <h3 class="card__title">In-house Brew</h3>
+                                <p class="card__quantity">1 cup</p>
+                            </div>
+                        <p class="card__price">$3</p>
+                        </div>
+                </article>
+            </section>
 
                 <div class="wrapper">
                     <a href="./pages/menu.html"><button>View all</button></a>
                 </div>
         </section>
+      
             
-        
-        <section class="banner highlight-box">
-            <p class="banner__text">Get 20% off your first order with code: <span style=font-weight:700;>FirstNitro</span></p>
+        <section class="call-to-action">
+            <div class="call-to-action__text">
+                <h2 class="hero__title">We're Different</h2>
+                <p class="hero__text">We grow and roast our own beans. Every bean, every cup, every step of the way, we strive for excellence.</p>
+                <div class="call-to-action__icons">
+                    <img class="icon" src="./assets/logos/planting.svg" alt="planting">
+                    <img class="icon" src="./assets/logos/coffee-beans.svg" alt="coffee beans">
+                    <img class="icon" src="./assets/logos/coffee-cup.svg" alt="coffee cup">
+                </div>
+                <a href="./pages/menu.html"><button>Learn more</button></a>
+            </div>
+            <div class="call-to-action__image">
+                <img src="./assets/images/tiltedcan.png" alt="tilted can">
+            </div>
+            <div class="banner highlight-box">
+                <p class="banner__text">Get 20% off your first order with code: <span style=font-weight:700;>FirstNitro</span></p>
+            </div>
         </section>
     </main>
 

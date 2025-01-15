@@ -10,19 +10,24 @@ main {
     height: 43.75rem;
     background-position: center;
     background-size: cover;
+    align-content: center;
+
 }
 
 .hero__title {
     height: 12.5rem;
     width: 18.75rem;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*submenu navigation*/
 .subnav {
     width: 100%;
     height: 5rem;
-    line-height: 5rem; 
+    align-content: center;
 }
 
 .subnav__link {

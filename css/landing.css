@@ -33,12 +33,18 @@ button:hover {
 /*hero*/
 .hero {
     background-color: #FFF0ED;
+    padding: 2.5rem 12.5rem 2.5rem 8.75rem;
 }
 
 .hero__container {
-    display: inline-block;
-    width:20%;
-    margin: 0 25rem 10rem 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text__container {
+    width: 25%;
 }
 
 .hero__title {
@@ -49,11 +55,9 @@ button:hover {
     margin-bottom: 2.5rem;
 }
 
-.hero__image {
-    display: inline-block;
-    vertical-align: bottom;
-    margin: 2.5rem 0 2.5rem 13.75rem;
-}
+/* .hero__image {
+    
+} */
 
 /*products*/
 .product {
@@ -67,47 +71,89 @@ button:hover {
 }
 
 /*cards*/
+.product__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* margin: 0 12.5rem; */
+}
+
 .card {
     background-color: #FFF;
+    border-radius: .625rem;
     box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0,0,0,0.25);
     transition: 0.5s;
-    border-radius: .625rem;
-    display: inline-block;
-    vertical-align: middle;
-    min-width: 20.625rem;
-    min-height: 27.5rem;
-    /* box-sizing: content-box; too short if border-box */
-    margin: 0 2.5rem;
-    padding-bottom: 2.5rem;
+    width: 20.625rem;
+    height: 27.5rem;
+    align-content: end;
 }
 
 .card__img {
     height: 17.5rem;
-    padding-top: 2.5rem;
+    padding: 1.25rem;
 }
 
-.card__title {
-    margin-top: 2.5rem;
-    margin-bottom: 1.875rem;
+.card__details{
+    background-color:#FFF0ED;
+    padding: 2.5rem 1.25rem;
+    border-radius: 0 0 .625rem .625rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    text-align: left;
+}
+
+.card__quantity {
+    color: #909090;
 }
 
 .card__price {
     color: #5BACC3;
     font-size:  2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
+    font-weight: 700;
 }
 
-/*discount banner*/
+/*call to action*/
 .banner {
-    width: 65%; /*style guide said 90% but it looked extra long*/
+    width: 70%; /*style guide said 90% but it looked extra long*/
     margin: auto;
     padding: 2.5rem 0;
-    margin-top: 15rem;
-    margin-bottom: 15rem;
+    margin-top: 12.5rem;
+    margin-bottom: 6.25rem;
 }
 
 .banner__text {
     font-size: 2.8125rem;
     font-weight: 400;
+}
+
+.call-to-action{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 6.25rem;
+    margin-bottom: 6.25rem;
+}
+
+.call-to-action__text{
+    width: 26%;
+}
+
+.call-to-action__icons{ 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+.call-to-action__image{
+    background-image:url("../assets/images/coldbrewbackground.png");
+    width: 25rem;
+    height: 25rem;
+    /* background-position: center; */
+    background-size: cover;
+    align-content: center;
+    text-align: center;
 }
 
 /*footer*/
@@ -118,7 +164,7 @@ button:hover {
 }
 
 .footer__content {
-    display:inline-block;
+    display: inline-block;
     text-align: left;
     margin: 5rem 0;
 }
