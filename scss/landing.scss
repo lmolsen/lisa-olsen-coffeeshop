@@ -1,20 +1,15 @@
 @use './partials/global' as *;
 
 /*pseudo-elements*/
-::selection {
-    color: #FFF;
-    background-color: #5BACC3;
-}
-
-::-moz-selection {
-    color: #FFF;
-    background-color: #5BACC3;
+::selection, ::-moz-selection {
+    color: $white;
+    background-color: $nitro-blue;
 }
 
 /*buttons*/
-button {
+.button { 
     cursor: pointer;
-    color:#FFF;
+    color: $white;
     font-size: 1.3125rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -22,40 +17,40 @@ button {
     position: absolute;
     width: 100%;
     height: 100%;
-    border: solid .125rem #393939;
-    left: -5px; 
-    top: -5px;
+    border: solid .125rem $graphite;
+    left: -0.3125rem; 
+    top: -0.3125rem;
 }
 
-button:hover {
-    background-color: #393939;
+/*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
+.button:active {
+    left: 0;
+    top: 0;
 }
 
-.hero__button, .product__button, .cta__button {
+.hero__button-container, .product__button-container, .cta__button-container {
     position: relative;
-    display: inline-block;
+    display: inline-block;   /*ADD FLEX*/
     width: 11.25rem;
     height: 3.75rem;
-    background-color: #5BACC3;
+    background-color: $nitro-blue;
     padding: 1.25rem;
-    margin-bottom: 5rem;;
+    margin-bottom: 5rem;
 }
 
 /*hero*/
 .hero {
-    background-color: #FFF0ED;
+    background-color: $nitro-pink;
     padding: 2.5rem 12.5rem 2.5rem 8.75rem;
-}
-
-.hero__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hero__message {
-    width: 25%;
+    &__container {
+        display: flex;
+        flex-wrap: wrap; /*maybe delete*/
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__message {
+        width: 25%;
+    }
 }
 
 .hero__title, .cta__title {
@@ -66,19 +61,14 @@ button:hover {
     margin-bottom: 2.5rem;
 }
 
-/* .hero__image {
-    
-} */
-
 /*products*/
 .product {
     text-align: center;
-    background-color: #F7F7F7;
-}
-
-.product__title {
-    margin-bottom: 3.75rem;
-    padding-top: 3.75rem;
+    background-color: $light-gray;
+    &__title {
+        margin-bottom: 3.75rem;
+        padding-top: 3.75rem;
+    }
 }
 
 /*cards*/
@@ -90,7 +80,7 @@ button:hover {
 }
 
 .card {
-    background-color: #FFF;
+    background-color: $white;
     border-radius: .625rem;
     box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0,0,0,0.25);
     transition: 0.5s;
@@ -106,22 +96,22 @@ button:hover {
 }
 
 .card__details {
-    background-color:#FFF0ED;
+    background-color:$nitro-pink;
     padding: 2.5rem 1.25rem;
     border-radius: 0 0 .625rem .625rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;         /*maybe delete*/
     justify-content: space-between;
     align-items: center; 
     text-align: left;
 }
 
 .card__quantity {
-    color: #909090;
+    color: $gray;
 }
 
 .card__price {
-    color: #5BACC3;
+    color: $nitro-blue;
     font-size:  2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
     font-weight: 700;
 }
@@ -129,97 +119,110 @@ button:hover {
 /*call to action*/
 .cta {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /*maybe delete*/
     justify-content: space-evenly;
     margin-top: 6.25rem;
     margin-bottom: 6.25rem;
-}
-.cta__container {
-    width: 26%;
-}
+    &__container {
+        width: 26%;
+    }
+    &__icons { 
+        display: flex;
+        flex-wrap: wrap;  /*maybe delete*/
+        justify-content: space-between;
+        margin-bottom: 2.5rem;
+    }
+    &__background {
+        width: 25rem;
+        height: 25rem;
+        text-align: center;
+        position: relative;
+        background-image:url("../assets/images/coldbrewbackground.png");
+        background-size: cover;
+    }
+    &__border {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        align-content: center;
+        left: -1.25rem;
+        border: solid .3125rem $nitro-blue;
+        top: -1.25rem;
+    }
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 
-.cta__icons { 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 2.5rem;
-}
+    &__image {
+        height: 17.5rem;
+        transform: rotate(0deg);
+    }
+    &__image:hover {
+        animation: spin 2s linear infinite;
+    }
 
-.cta__background {
-    width: 25rem;
-    height: 25rem;
-    text-align: center;
-    position: relative;
-    background-image:url("../assets/images/coldbrewbackground.png");
-    background-size: cover;
+    @keyframes flash {
+        0% {
+            background: $graphite;
+        }
+        50% {
+            background: $nitro-blue;
+        }
+        100% {
+            background: $graphite;
+        }
+    }
+    &__banner {
+        width: 70%; /*style guide said 90% but it looked extra long*/
+        margin: auto;
+        padding: 2.5rem 0;
+        margin-top: 12.5rem;
+        margin-bottom: 6.25rem;
+        background-color: $graphite; /*SHOULD I DELETE since it's in the animation?*/
+        color: $white;
+        text-align: center;
+        animation: flash 2.5s ease infinite;
+    }
+    &__discount {
+        font-size: 2.8125rem;
+        font-weight: 400;
+    }
 }
-
-.cta__border {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    align-content: center;
-    left: -1.25rem;
-    border: solid .3125rem #5BACC3;
-    top: -1.25rem;
-    z-index: 1;
-}
-
-.cta__image {
-    height: 17.5rem;
-}
-
-.cta__banner {
-    width: 70%; /*style guide said 90% but it looked extra long*/
-    margin: auto;
-    padding: 2.5rem 0;
-    margin-top: 12.5rem;
-    margin-bottom: 6.25rem;
-    background-color: #393939;
-    color: #FFF;
-    text-align: center;
-}
-
-.cta__discount {
-    font-size: 2.8125rem;
-    font-weight: 400;
-}
-
 
 /*footer*/
 .footer {
-    background-color: #FFF0ED;
+    background-color: $nitro-pink;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /*,maybe delete*/
     justify-content: space-between;
     overflow: hidden;
-}
+    &__content {
+        text-align: left;
+        margin: 5rem 0;
+    }
 
-.footer__content {
-    text-align: left;
-    margin: 5rem 0;
-}
+    &__heading {
+        margin-bottom: 1.25rem;
+    }
 
-.footer__heading {
-    margin-bottom: 1.25rem;
-}
+    &__logo {
+        opacity: 0.25;
+        width: 7.5rem;
+    }
 
-.footer__logo {
-    opacity: 0.25;
-    width: 7.5rem;
-}
+    &__logo--top {
+        align-self: start;
+        padding-top: 1.25rem;
+        position: relative;
+        left: -2.5rem; 
+    }
 
-/*how to get it to wrap properly??*/
-.top {
-    align-self: start;
-    padding-top: 1.25rem;
-    position: relative;
-    left: -2.5rem; 
-}
-
-.bottom {
-    align-self: end;
-    padding-bottom: 1.25rem;
-    position: relative;
-    right: -2.5rem;
+    &__logo--bottom {
+        align-self: end;
+        padding-bottom: 1.25rem;
+        position: relative;
+        right: -2.5rem;
+    }
 }

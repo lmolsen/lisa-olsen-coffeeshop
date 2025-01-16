@@ -1,3 +1,4 @@
+/*variables*/
 /*basic tags*/
 *, *::before, *::after {
   box-sizing: border-box;
@@ -41,10 +42,10 @@ ul, li {
 .navbar {
   background-color: #FFF0ED;
   width: 100%;
-  height: 7rem; /*but why????*/
+  height: 7rem; /*CHECK HEIGHT but why????*/
   padding: 0 1.25rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*maybe delete*/
   justify-content: space-between;
   align-items: center;
 }
@@ -61,13 +62,13 @@ ul, li {
 .navbar__heading {
   display: inline-block; /*ADD flex*/
   color: #393939;
-  line-height: 3.125rem; /*flex direction row???*/
+  line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
 }
 
 .navbar__item {
   font-size: 1.3125rem;
   font-weight: 400;
-  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmmmm*/
+  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmmmm maybe use GAP*/
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -81,18 +82,13 @@ ul, li {
   color: #FFF;
   background-color: #5BACC3;
 }
-::selection {
-  color: #FFF;
-  background-color: #5BACC3;
-}
-
-::-moz-selection {
+::selection, ::-moz-selection {
   color: #FFF;
   background-color: #5BACC3;
 }
 
 /*buttons*/
-button {
+.button {
   cursor: pointer;
   color: #FFF;
   font-size: 1.3125rem;
@@ -103,17 +99,19 @@ button {
   width: 100%;
   height: 100%;
   border: solid 0.125rem #393939;
-  left: -5px;
-  top: -5px;
+  left: -0.3125rem;
+  top: -0.3125rem;
 }
 
-button:hover {
-  background-color: #393939;
+/*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
+.button:active {
+  left: 0;
+  top: 0;
 }
 
-.hero__button, .product__button, .cta__button {
+.hero__button-container, .product__button-container, .cta__button-container {
   position: relative;
-  display: inline-block;
+  display: inline-block; /*ADD FLEX*/
   width: 11.25rem;
   height: 3.75rem;
   background-color: #5BACC3;
@@ -126,14 +124,12 @@ button:hover {
   background-color: #FFF0ED;
   padding: 2.5rem 12.5rem 2.5rem 8.75rem;
 }
-
 .hero__container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*maybe delete*/
   justify-content: space-between;
   align-items: center;
 }
-
 .hero__message {
   width: 25%;
 }
@@ -146,15 +142,11 @@ button:hover {
   margin-bottom: 2.5rem;
 }
 
-/* .hero__image {
-
-} */
 /*products*/
 .product {
   text-align: center;
   background-color: #F7F7F7;
 }
-
 .product__title {
   margin-bottom: 3.75rem;
   padding-top: 3.75rem;
@@ -189,7 +181,7 @@ button:hover {
   padding: 2.5rem 1.25rem;
   border-radius: 0 0 0.625rem 0.625rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*maybe delete*/
   justify-content: space-between;
   align-items: center;
   text-align: left;
@@ -208,23 +200,20 @@ button:hover {
 /*call to action*/
 .cta {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*maybe delete*/
   justify-content: space-evenly;
   margin-top: 6.25rem;
   margin-bottom: 6.25rem;
 }
-
 .cta__container {
   width: 26%;
 }
-
 .cta__icons {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*maybe delete*/
   justify-content: space-between;
   margin-bottom: 2.5rem;
 }
-
 .cta__background {
   width: 25rem;
   height: 25rem;
@@ -233,7 +222,6 @@ button:hover {
   background-image: url("../assets/images/coldbrewbackground.png");
   background-size: cover;
 }
-
 .cta__border {
   position: absolute;
   width: 100%;
@@ -242,24 +230,41 @@ button:hover {
   left: -1.25rem;
   border: solid 0.3125rem #5BACC3;
   top: -1.25rem;
-  z-index: 1;
 }
-
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .cta__image {
   height: 17.5rem;
+  transform: rotate(0deg);
 }
-
+.cta__image:hover {
+  animation: spin 2s linear infinite;
+}
+@keyframes flash {
+  0% {
+    background: #393939;
+  }
+  50% {
+    background: #5BACC3;
+  }
+  100% {
+    background: #393939;
+  }
+}
 .cta__banner {
   width: 70%; /*style guide said 90% but it looked extra long*/
   margin: auto;
   padding: 2.5rem 0;
   margin-top: 12.5rem;
   margin-bottom: 6.25rem;
-  background-color: #393939;
+  background-color: #393939; /*SHOULD I DELETE since it's in the animation?*/
   color: #FFF;
   text-align: center;
+  animation: flash 2.5s ease infinite;
 }
-
 .cta__discount {
   font-size: 2.8125rem;
   font-weight: 400;
@@ -269,34 +274,28 @@ button:hover {
 .footer {
   background-color: #FFF0ED;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*,maybe delete*/
   justify-content: space-between;
   overflow: hidden;
 }
-
 .footer__content {
   text-align: left;
   margin: 5rem 0;
 }
-
 .footer__heading {
   margin-bottom: 1.25rem;
 }
-
 .footer__logo {
   opacity: 0.25;
   width: 7.5rem;
 }
-
-/*how to get it to wrap properly??*/
-.top {
+.footer__logo--top {
   align-self: start;
   padding-top: 1.25rem;
   position: relative;
   left: -2.5rem;
 }
-
-.bottom {
+.footer__logo--bottom {
   align-self: end;
   padding-bottom: 1.25rem;
   position: relative;
