@@ -1,12 +1,24 @@
 @use './partials/global' as *;
 
-/*pseudo-elements*/
-::selection, ::-moz-selection {
-    color: $white;
-    background-color: $nitro-blue;
+/*extensions - send to global?*/
+.title {
+    margin-bottom: 1.25rem;
 }
 
-/*buttons*/
+.text {
+    margin-bottom: 2.5rem;
+}
+
+.button-container {
+    position: relative;
+    width: 11.25rem;
+    height: 3.75rem;
+    background-color: $nitro-blue;
+    padding: 1.25rem;
+    margin-bottom: 5rem;
+}
+
+/*classes*/
 .button { 
     cursor: pointer;
     color: $white;
@@ -20,25 +32,13 @@
     border: solid .125rem $graphite;
     left: -0.3125rem; 
     top: -0.3125rem;
+    /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
+    &:active {
+        left: 0;
+        top: 0;
+    }
 }
 
-/*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
-.button:active {
-    left: 0;
-    top: 0;
-}
-
-.hero__button-container, .product__button-container, .cta__button-container {
-    position: relative;
-    display: inline-block;   /*ADD FLEX*/
-    width: 11.25rem;
-    height: 3.75rem;
-    background-color: $nitro-blue;
-    padding: 1.25rem;
-    margin-bottom: 5rem;
-}
-
-/*hero*/
 .hero {
     background-color: $nitro-pink;
     padding: 2.5rem 12.5rem 2.5rem 8.75rem;
@@ -51,17 +51,19 @@
     &__message {
         width: 25%;
     }
+    &__title
+    {
+        @extend .title;
+    }
+    &__text {
+        @extend .text;
+    }
+    &__button-container
+    {
+        @extend .button-container;
+    }
 }
 
-.hero__title, .cta__title {
-    margin-bottom: 1.25rem;
-}
-
-.hero__text, .cta__text {
-    margin-bottom: 2.5rem;
-}
-
-/*products*/
 .product {
     text-align: center;
     background-color: $light-gray;
@@ -69,14 +71,17 @@
         margin-bottom: 3.75rem;
         padding-top: 3.75rem;
     }
-}
-
-/*cards*/
-.product__cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    /* margin: 0 12.5rem; */
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        /* margin: 0 12.5rem; */
+    }
+    &__button-container
+    {
+        @extend .button-container;
+        display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
+    }
 }
 
 .card {
@@ -88,32 +93,47 @@
     height: 27.5rem;
     align-content: end;
     margin-bottom: 5rem;
+    &__img {
+        height: 17.5rem;
+        padding: 1.25rem;
+    }
+    &__details {
+        background-color:$nitro-pink;
+        padding: 2.5rem 1.25rem;
+        border-radius: 0 0 .625rem .625rem;
+        display: flex;
+        flex-wrap: wrap;         /*maybe delete*/
+        justify-content: space-between;
+        align-items: center; 
+        text-align: left;
+    }
+    &_quantity {
+        color: $gray;
+    }
+    &__price {
+        color: $nitro-blue;
+        font-size:  2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
+        font-weight: 700;
+    }
 }
 
-.card__img {
-    height: 17.5rem;
-    padding: 1.25rem;
+/*animations */
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.card__details {
-    background-color:$nitro-pink;
-    padding: 2.5rem 1.25rem;
-    border-radius: 0 0 .625rem .625rem;
-    display: flex;
-    flex-wrap: wrap;         /*maybe delete*/
-    justify-content: space-between;
-    align-items: center; 
-    text-align: left;
-}
-
-.card__quantity {
-    color: $gray;
-}
-
-.card__price {
-    color: $nitro-blue;
-    font-size:  2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
-    font-weight: 700;
+@keyframes flash {
+    0% {
+        background: $graphite;
+    }
+    50% {
+        background: $nitro-blue;
+    }
+    100% {
+        background: $graphite;
+    }
 }
 
 /*call to action*/
@@ -125,6 +145,12 @@
     margin-bottom: 6.25rem;
     &__container {
         width: 26%;
+    }
+    &__title {
+        @extend .title;
+    }
+    &__text {
+        @extend .text;
     }
     &__icons { 
         display: flex;
@@ -149,29 +175,11 @@
         border: solid .3125rem $nitro-blue;
         top: -1.25rem;
     }
-    @keyframes spin {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
     &__image {
         height: 17.5rem;
         transform: rotate(0deg);
-    }
-    &__image:hover {
-        animation: spin 2s linear infinite;
-    }
-
-    @keyframes flash {
-        0% {
-            background: $graphite;
-        }
-        50% {
-            background: $nitro-blue;
-        }
-        100% {
-            background: $graphite;
+        &:hover {
+            animation: spin 2s linear infinite;
         }
     }
     &__banner {
@@ -189,9 +197,12 @@
         font-size: 2.8125rem;
         font-weight: 400;
     }
+    &__button-container
+    {
+        @extend .button-container;
+    }
 }
 
-/*footer*/
 .footer {
     background-color: $nitro-pink;
     display: flex;
@@ -202,23 +213,19 @@
         text-align: left;
         margin: 5rem 0;
     }
-
     &__heading {
         margin-bottom: 1.25rem;
     }
-
     &__logo {
         opacity: 0.25;
         width: 7.5rem;
     }
-
     &__logo--top {
         align-self: start;
         padding-top: 1.25rem;
         position: relative;
         left: -2.5rem; 
     }
-
     &__logo--bottom {
         align-self: end;
         padding-bottom: 1.25rem;

@@ -6,6 +6,22 @@ $gray: #909090;
 $light-gray: #F7F7F7;
 $white: #FFF;
 
+/*extension*/
+.link-hover {
+    color: $nitro-blue;
+}
+
+/*selection highlight*/
+::selection {
+    color: $white;
+    background-color: $nitro-blue;
+}
+
+::-moz-selection {
+    color: $white;
+    background-color: $nitro-blue;
+}
+
 /*basic tags*/
 *, *::before, *::after {
     box-sizing: border-box;
@@ -34,7 +50,7 @@ p {
 }
 
 ul, li {
-    display: inline-block; /*ADD flex*/
+    display: inline-block; /*ADD flex - squishes them in more*/
     list-style-type: none;
 }
 
@@ -55,32 +71,26 @@ ul, li {
     flex-wrap: wrap;  /*maybe delete*/
     justify-content: space-between;
     align-items: center;
+    &__link {
+        color:$graphite;
+        text-decoration: none;
+            &:hover {
+                @extend .link-hover;
+            }
+    } 
+    &__logo {
+        vertical-align: text-bottom;
+    }
+    &__heading {
+        display: inline-block; /*ADD flex - wrecks it*/
+        color: $graphite;
+        line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
+    }
+    &__item {
+        font-size: 1.3125rem; 
+        font-weight: 400;
+        padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
+        text-transform: uppercase;
+        text-decoration: none;
+    }
 }
-
-.navbar__link {
-    color:$graphite;
-    text-decoration: none;
-} 
-
-.navbar__logo {
-    vertical-align: text-bottom;
-}
-
-.navbar__heading {
-    display: inline-block; /*ADD flex*/
-    color: $graphite;
-    line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
-}
-
-.navbar__item {
-    font-size: 1.3125rem; 
-    font-weight: 400;
-    padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmmmm maybe use GAP*/
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-.navbar__link:hover, .subnav__link:hover {
-    color: $nitro-blue;
-}
-

@@ -1,4 +1,24 @@
 /*variables*/
+/*extension*/
+.link-hover, .navbar__link:hover {
+  color: #5BACC3;
+}
+
+/*selection highlight*/
+::-moz-selection {
+  color: #FFF;
+  background-color: #5BACC3;
+}
+::selection {
+  color: #FFF;
+  background-color: #5BACC3;
+}
+
+::-moz-selection {
+  color: #FFF;
+  background-color: #5BACC3;
+}
+
 /*basic tags*/
 *, *::before, *::after {
   box-sizing: border-box;
@@ -27,7 +47,7 @@ p {
 }
 
 ul, li {
-  display: inline-block; /*ADD flex*/
+  display: inline-block; /*ADD flex - squishes them in more*/
   list-style-type: none;
 }
 
@@ -49,45 +69,45 @@ ul, li {
   justify-content: space-between;
   align-items: center;
 }
-
 .navbar__link {
   color: #393939;
   text-decoration: none;
 }
-
 .navbar__logo {
   vertical-align: text-bottom;
 }
-
 .navbar__heading {
-  display: inline-block; /*ADD flex*/
+  display: inline-block; /*ADD flex - wrecks it*/
   color: #393939;
   line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
 }
-
 .navbar__item {
   font-size: 1.3125rem;
   font-weight: 400;
-  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmmmm maybe use GAP*/
+  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.navbar__link:hover, .subnav__link:hover {
-  color: #5BACC3;
+/*extensions - send to global?*/
+.title, .cta__title, .hero__title {
+  margin-bottom: 1.25rem;
 }
 
-/*pseudo-elements*/
-::-moz-selection {
-  color: #FFF;
-  background-color: #5BACC3;
-}
-::selection, ::-moz-selection {
-  color: #FFF;
-  background-color: #5BACC3;
+.text, .cta__text, .hero__text {
+  margin-bottom: 2.5rem;
 }
 
-/*buttons*/
+.button-container, .cta__button-container, .product__button-container, .hero__button-container {
+  position: relative;
+  width: 11.25rem;
+  height: 3.75rem;
+  background-color: #5BACC3;
+  padding: 1.25rem;
+  margin-bottom: 5rem;
+}
+
+/*classes*/
 .button {
   cursor: pointer;
   color: #FFF;
@@ -101,25 +121,13 @@ ul, li {
   border: solid 0.125rem #393939;
   left: -0.3125rem;
   top: -0.3125rem;
+  /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
 }
-
-/*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
 .button:active {
   left: 0;
   top: 0;
 }
 
-.hero__button-container, .product__button-container, .cta__button-container {
-  position: relative;
-  display: inline-block; /*ADD FLEX*/
-  width: 11.25rem;
-  height: 3.75rem;
-  background-color: #5BACC3;
-  padding: 1.25rem;
-  margin-bottom: 5rem;
-}
-
-/*hero*/
 .hero {
   background-color: #FFF0ED;
   padding: 2.5rem 12.5rem 2.5rem 8.75rem;
@@ -133,16 +141,6 @@ ul, li {
 .hero__message {
   width: 25%;
 }
-
-.hero__title, .cta__title {
-  margin-bottom: 1.25rem;
-}
-
-.hero__text, .cta__text {
-  margin-bottom: 2.5rem;
-}
-
-/*products*/
 .product {
   text-align: center;
   background-color: #F7F7F7;
@@ -151,13 +149,14 @@ ul, li {
   margin-bottom: 3.75rem;
   padding-top: 3.75rem;
 }
-
-/*cards*/
 .product__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   /* margin: 0 12.5rem; */
+}
+.product__button-container {
+  display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
 }
 
 .card {
@@ -170,12 +169,10 @@ ul, li {
   align-content: end;
   margin-bottom: 5rem;
 }
-
 .card__img {
   height: 17.5rem;
   padding: 1.25rem;
 }
-
 .card__details {
   background-color: #FFF0ED;
   padding: 2.5rem 1.25rem;
@@ -186,17 +183,32 @@ ul, li {
   align-items: center;
   text-align: left;
 }
-
-.card__quantity {
+.card_quantity {
   color: #909090;
 }
-
 .card__price {
   color: #5BACC3;
   font-size: 2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
   font-weight: 700;
 }
 
+/*animations */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes flash {
+  0% {
+    background: #393939;
+  }
+  50% {
+    background: #5BACC3;
+  }
+  100% {
+    background: #393939;
+  }
+}
 /*call to action*/
 .cta {
   display: flex;
@@ -231,28 +243,12 @@ ul, li {
   border: solid 0.3125rem #5BACC3;
   top: -1.25rem;
 }
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
 .cta__image {
   height: 17.5rem;
   transform: rotate(0deg);
 }
 .cta__image:hover {
   animation: spin 2s linear infinite;
-}
-@keyframes flash {
-  0% {
-    background: #393939;
-  }
-  50% {
-    background: #5BACC3;
-  }
-  100% {
-    background: #393939;
-  }
 }
 .cta__banner {
   width: 70%; /*style guide said 90% but it looked extra long*/
@@ -269,8 +265,6 @@ ul, li {
   font-size: 2.8125rem;
   font-weight: 400;
 }
-
-/*footer*/
 .footer {
   background-color: #FFF0ED;
   display: flex;

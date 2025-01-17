@@ -1,4 +1,24 @@
 /*variables*/
+/*extension*/
+.link-hover, .subnav__link:hover, .navbar__link:hover {
+  color: #5BACC3;
+}
+
+/*selection highlight*/
+::-moz-selection {
+  color: #FFF;
+  background-color: #5BACC3;
+}
+::selection {
+  color: #FFF;
+  background-color: #5BACC3;
+}
+
+::-moz-selection {
+  color: #FFF;
+  background-color: #5BACC3;
+}
+
 /*basic tags*/
 *, *::before, *::after {
   box-sizing: border-box;
@@ -27,7 +47,7 @@ p {
 }
 
 ul, li {
-  display: inline-block; /*ADD flex*/
+  display: inline-block; /*ADD flex - squishes them in more*/
   list-style-type: none;
 }
 
@@ -49,40 +69,26 @@ ul, li {
   justify-content: space-between;
   align-items: center;
 }
-
 .navbar__link {
   color: #393939;
   text-decoration: none;
 }
-
 .navbar__logo {
   vertical-align: text-bottom;
 }
-
 .navbar__heading {
-  display: inline-block; /*ADD flex*/
+  display: inline-block; /*ADD flex - wrecks it*/
   color: #393939;
   line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
 }
-
 .navbar__item {
   font-size: 1.3125rem;
   font-weight: 400;
-  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmmmm maybe use GAP*/
+  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.navbar__link:hover, .subnav__link:hover {
-  color: #5BACC3;
-}
-
-/*basic tag*/
-main {
-  text-align: center;
-}
-
-/*background*/
 .hero {
   background-image: url("../assets/images/coffee-circle.jpg");
   width: 100%;
@@ -91,7 +97,6 @@ main {
   background-size: cover;
   align-content: center;
 }
-
 .hero__container {
   background-color: #393939;
   height: 12.5rem;
@@ -99,12 +104,10 @@ main {
   margin: auto;
   position: relative;
 }
-
 .hero__title {
   color: #FFF;
   text-align: center;
 }
-
 .hero__border {
   display: flex;
   justify-content: center;
@@ -126,14 +129,12 @@ main {
   color: #FFF;
   text-align: center;
 }
-
 .subnav__link {
   color: #FFF;
   text-decoration: none;
   border-left: 0.25rem solid #5BACC3;
   padding: 0 1.25rem;
 }
-
 .subnav__item {
   font-size: 1.3125rem;
   font-weight: 400;
@@ -141,26 +142,25 @@ main {
 }
 
 /*products*/
+.product-list {
+  text-align: center;
+}
+
 .product {
   padding-bottom: 2.5rem;
 }
-
 .product--odd {
   background-color: #FFF0ED;
 }
-
 .product--even {
   background-color: #F7F7F7;
 }
-
 .product__category {
   padding: 1.25rem 0;
 }
-
 .product__title {
   margin-top: 1.25rem;
 }
-
 .product__description {
   font-style: italic;
   color: #393939;
@@ -168,7 +168,6 @@ main {
   margin: auto;
   padding: 0.25rem 0;
 }
-
 .product__price {
   color: #5BACC3;
 }/*# sourceMappingURL=menu.css.map */
