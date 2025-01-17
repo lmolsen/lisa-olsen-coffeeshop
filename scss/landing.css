@@ -1,9 +1,5 @@
 /*variables*/
-/*extension*/
-.link-hover, .navbar__link:hover {
-  color: #5BACC3;
-}
-
+/*mixins*/
 /*selection highlight*/
 ::-moz-selection {
   color: #FFF;
@@ -20,7 +16,7 @@
 }
 
 /*basic tags*/
-*, *::before, *::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -32,18 +28,18 @@ body {
 }
 
 h1, h2 {
-  font-size: 3.75rem;
   font-weight: 300;
+  font-size: 3.75rem;
 }
 
 h3 {
-  font-size: 2.0625rem;
   font-weight: 300;
+  font-size: 2.0625rem;
 }
 
 p {
-  font-size: 1.125rem;
   font-weight: 400;
+  font-size: 1.125rem;
 }
 
 ul, li {
@@ -73,6 +69,9 @@ ul, li {
   color: #393939;
   text-decoration: none;
 }
+.navbar__link:hover {
+  color: #5BACC3;
+}
 .navbar__logo {
   vertical-align: text-bottom;
 }
@@ -82,23 +81,23 @@ ul, li {
   line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
 }
 .navbar__item {
-  font-size: 1.3125rem;
   font-weight: 400;
+  font-size: 1.3125rem;
   padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
   text-transform: uppercase;
   text-decoration: none;
 }
 
-/*extensions - send to global?*/
-.title, .cta__title, .hero__title {
+/*extensions*/
+.message-title, .cta__title, .hero__title {
   margin-bottom: 1.25rem;
 }
 
-.text, .cta__text, .hero__text {
+.message-text, .cta__text, .hero__text {
   margin-bottom: 2.5rem;
 }
 
-.button-container, .cta__button-container, .product__button-container, .hero__button-container {
+.button-base, .cta__button-container, .product__button-container, .hero__button-container {
   position: relative;
   width: 11.25rem;
   height: 3.75rem;
@@ -111,15 +110,16 @@ ul, li {
 .button {
   cursor: pointer;
   color: #FFF;
-  font-size: 1.3125rem;
   font-weight: 400;
+  font-size: 1.3125rem;
   text-transform: uppercase;
   background-color: transparent;
   position: absolute;
+  /*should I switch this back to extend?*/
   width: 100%;
   height: 100%;
   border: solid 0.125rem #393939;
-  left: -0.3125rem;
+  left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
   top: -0.3125rem;
   /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
 }
@@ -153,7 +153,7 @@ ul, li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  /* margin: 0 12.5rem; */
+  margin: 0 12.5rem;
 }
 .product__button-container {
   display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
@@ -188,8 +188,9 @@ ul, li {
 }
 .card__price {
   color: #5BACC3;
-  font-size: 2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
   font-weight: 700;
+  font-size: 2.0625rem;
+  /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
 }
 
 /*animations */
@@ -236,12 +237,13 @@ ul, li {
 }
 .cta__border {
   position: absolute;
+  /*should I switch this back to extend?*/
   width: 100%;
   height: 100%;
   align-content: center;
-  left: -1.25rem;
   border: solid 0.3125rem #5BACC3;
   top: -1.25rem;
+  left: -1.25rem;
 }
 .cta__image {
   height: 17.5rem;
@@ -256,14 +258,15 @@ ul, li {
   padding: 2.5rem 0;
   margin-top: 12.5rem;
   margin-bottom: 6.25rem;
-  background-color: #393939; /*SHOULD I DELETE since it's in the animation?*/
+  /*should I switch this back to extend?*/
+  background-color: #393939;
   color: #FFF;
   text-align: center;
   animation: flash 2.5s ease infinite;
 }
 .cta__discount {
-  font-size: 2.8125rem;
   font-weight: 400;
+  font-size: 2.8125rem;
 }
 .footer {
   background-color: #FFF0ED;

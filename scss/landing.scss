@@ -1,15 +1,15 @@
 @use './partials/global' as *;
 
-/*extensions - send to global?*/
-.title {
+/*extensions*/
+.message-title {
     margin-bottom: 1.25rem;
 }
 
-.text {
+.message-text {
     margin-bottom: 2.5rem;
 }
 
-.button-container {
+.button-base {
     position: relative;
     width: 11.25rem;
     height: 3.75rem;
@@ -22,15 +22,13 @@
 .button { 
     cursor: pointer;
     color: $white;
-    font-size: 1.3125rem;
-    font-weight: 400;
+    @include regular-font (1.3125rem);
     text-transform: uppercase;
     background-color: transparent;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    @include full-size;
     border: solid .125rem $graphite;
-    left: -0.3125rem; 
+    left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
     top: -0.3125rem;
     /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
     &:active {
@@ -53,14 +51,14 @@
     }
     &__title
     {
-        @extend .title;
+        @extend .message-title;
     }
     &__text {
-        @extend .text;
+        @extend .message-text;
     }
     &__button-container
     {
-        @extend .button-container;
+        @extend .button-base;
     }
 }
 
@@ -75,11 +73,11 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        /* margin: 0 12.5rem; */
+        margin: 0 12.5rem;
     }
     &__button-container
     {
-        @extend .button-container;
+        @extend .button-base;
         display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
     }
 }
@@ -112,8 +110,7 @@
     }
     &__price {
         color: $nitro-blue;
-        font-size:  2.0625rem; /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
-        font-weight: 700;
+        @include bold-font (2.0625rem); /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
     }
 }
 
@@ -147,10 +144,10 @@
         width: 26%;
     }
     &__title {
-        @extend .title;
+        @extend .message-title;
     }
     &__text {
-        @extend .text;
+        @extend .message-text;
     }
     &__icons { 
         display: flex;
@@ -168,12 +165,11 @@
     }
     &__border {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        @include full-size;
         align-content: center;
-        left: -1.25rem;
         border: solid .3125rem $nitro-blue;
         top: -1.25rem;
+        left: -1.25rem;
     }
     &__image {
         height: 17.5rem;
@@ -188,18 +184,14 @@
         padding: 2.5rem 0;
         margin-top: 12.5rem;
         margin-bottom: 6.25rem;
-        background-color: $graphite; /*SHOULD I DELETE since it's in the animation?*/
-        color: $white;
-        text-align: center;
+        @include contrast-box;
         animation: flash 2.5s ease infinite;
     }
     &__discount {
-        font-size: 2.8125rem;
-        font-weight: 400;
+        @include regular-font (2.8125rem);
     }
-    &__button-container
-    {
-        @extend .button-container;
+    &__button-container {
+        @extend .button-base;
     }
 }
 
