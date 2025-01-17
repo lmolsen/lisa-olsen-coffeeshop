@@ -45,7 +45,7 @@ p {
 
 ul,
 li {
-  display: inline-block; /*ADD flex - squishes them in more*/
+  display: inline-block; /*ADD flex??? - squishes them in more*/
   list-style-type: none;
 }
 
@@ -60,10 +60,10 @@ li {
 .navbar {
   background-color: #fff0ed;
   width: 100%;
-  height: 7rem; /*CHECK HEIGHT but why????*/
+  height: 7rem; /*CHECK HEIGHT is there any reason I use should padding around the container instead????*/
   padding: 0 1.25rem;
   display: flex;
-  flex-wrap: wrap; /*maybe delete*/
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -78,34 +78,15 @@ li {
   vertical-align: text-bottom;
 }
 .navbar__heading {
-  display: inline-block; /*ADD flex - wrecks it*/
+  display: inline-block; /*ADD flex? - I can add flex to __link but it requires line-height */
   color: #393939;
-  line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
+  line-height: 3.125rem; /*Do I need?*/
 }
 .navbar__item {
   font-weight: 400;
   font-size: 1.3125rem;
-  padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
+  padding: 1.25rem 1.25rem 0 1.25rem;
   text-transform: uppercase;
-  text-decoration: none;
-}
-
-/*extends*/
-.message-title, .cta__title, .hero__title {
-  margin-bottom: 1.25rem;
-}
-
-.message-text, .cta__text, .hero__text {
-  margin-bottom: 2.5rem;
-}
-
-.button-base, .cta__button-container, .product__button-container, .hero__button-container {
-  position: relative;
-  width: 11.25rem;
-  height: 3.75rem;
-  background-color: #5bacc3;
-  padding: 1.25rem;
-  margin-bottom: 5rem;
 }
 
 /*classes*/
@@ -117,13 +98,12 @@ li {
   text-transform: uppercase;
   background-color: transparent;
   position: absolute;
-  /*should I switch this back to extend?*/
   width: 100%;
   height: 100%;
   border: solid 0.125rem #393939;
   left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
   top: -0.3125rem;
-  /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
+  /*I am not using transition or animation below because it isn't helpful for the instant and simple translation*/
 }
 .button:active {
   left: 0;
@@ -136,13 +116,28 @@ li {
 }
 .hero__container {
   display: flex;
-  flex-wrap: wrap; /*maybe delete*/
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 .hero__message {
   width: 25%;
 }
+.hero__title {
+  margin-bottom: 1.25rem;
+}
+.hero__text {
+  margin-bottom: 2.5rem;
+}
+.hero__button-container {
+  position: relative;
+  width: 11.25rem;
+  height: 3.75rem;
+  background-color: #5bacc3;
+  padding: 1.25rem;
+  margin-bottom: 5rem;
+}
+
 .product {
   text-align: center;
   background-color: #f7f7f7;
@@ -155,17 +150,21 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: 0 12.5rem;
 }
 .product__button-container {
-  display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
+  position: relative;
+  width: 11.25rem;
+  height: 3.75rem;
+  background-color: #5bacc3;
+  padding: 1.25rem;
+  margin-bottom: 5rem;
+  display: inline-block; /*Simpler to use here than flex*/
 }
 
 .card {
   background-color: #fff;
   border-radius: 0.625rem;
   box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
-  transition: 0.5s; /*is this required?*/
   width: 20.625rem;
   height: 27.5rem;
   align-content: end;
@@ -180,7 +179,7 @@ li {
   padding: 2.5rem 1.25rem;
   border-radius: 0 0 0.625rem 0.625rem;
   display: flex;
-  flex-wrap: wrap; /*maybe delete*/
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   text-align: left;
@@ -215,7 +214,7 @@ li {
 /*call to action*/
 .cta {
   display: flex;
-  flex-wrap: wrap; /*maybe delete*/
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 6.25rem;
   margin-bottom: 6.25rem;
@@ -223,9 +222,15 @@ li {
 .cta__container {
   width: 26%;
 }
+.cta__title {
+  margin-bottom: 1.25rem;
+}
+.cta__text {
+  margin-bottom: 2.5rem;
+}
 .cta__icons {
   display: flex;
-  flex-wrap: wrap; /*maybe delete*/
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 2.5rem;
 }
@@ -237,9 +242,11 @@ li {
   background-image: url("../assets/images/coldbrewbackground.png");
   background-size: cover;
 }
+.cta__background:hover .cta__image { /*instructions say can must rotate with hover over box/line image - otherwise I would just have this hover on image without a child selector, which isn't nice with nesting*/
+  animation: spin 2s linear infinite;
+}
 .cta__border {
   position: absolute;
-  /*should I switch this back to extend?*/
   width: 100%;
   height: 100%;
   align-content: center;
@@ -251,29 +258,32 @@ li {
   height: 17.5rem;
   transform: rotate(0deg);
 }
-.cta__image:hover {
-  animation: spin 2s linear infinite;
-}
 .cta__banner {
-  width: 70%; /*style guide said 90% but it looked extra long*/
-  margin: auto;
+  width: 65%; /*style guide said 90% but it looked extra long*/
   padding: 2.5rem 0;
   margin-top: 12.5rem;
   margin-bottom: 6.25rem;
-  /*should I switch this back to extend?*/
   background-color: #393939;
   color: #fff;
   text-align: center;
   animation: flash 2.5s ease infinite;
 }
-.cta__text {
+.cta__discount-text {
   font-weight: 400;
   font-size: 2.8125rem;
 }
+.cta__button-container {
+  position: relative;
+  width: 11.25rem;
+  height: 3.75rem;
+  background-color: #5bacc3;
+  padding: 1.25rem;
+  margin-bottom: 5rem;
+}
+
 .footer {
   background-color: #fff0ed;
   display: flex;
-  flex-wrap: wrap; /*,maybe delete*/
   justify-content: space-between;
   overflow: hidden;
 }

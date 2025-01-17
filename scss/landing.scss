@@ -1,22 +1,6 @@
-@use "./partials/global" as *;
-
-/*extends*/
-.message-title {
-  margin-bottom: 1.25rem;
-}
-
-.message-text {
-  margin-bottom: 2.5rem;
-}
-
-.button-base {
-  position: relative;
-  width: 11.25rem;
-  height: 3.75rem;
-  background-color: $nitro-blue;
-  padding: 1.25rem;
-  margin-bottom: 5rem;
-}
+@use "./partials/global";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
 
 /*classes*/
 .button {
@@ -30,7 +14,7 @@
   border: solid 0.125rem $graphite;
   left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
   top: -0.3125rem;
-  /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
+  /*I am not using transition or animation below because it isn't helpful for the instant and simple translation*/
   &:active {
     left: 0;
     top: 0;
@@ -42,7 +26,7 @@
   padding: 2.5rem 12.5rem 2.5rem 8.75rem;
   &__container {
     display: flex;
-    flex-wrap: wrap; /*maybe delete*/
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -50,13 +34,13 @@
     width: 25%;
   }
   &__title {
-    @extend .message-title;
+    @include message-title;
   }
   &__text {
-    @extend .message-text;
+    @include message-text;
   }
   &__button-container {
-    @extend .button-base;
+    @include button-base;
   }
 }
 
@@ -71,11 +55,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 0 12.5rem;
+    // margin: 0 12.5rem;
   }
   &__button-container {
-    @extend .button-base;
-    display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
+    @include button-base;
+    display: inline-block; /*Simpler to use here than flex*/
   }
 }
 
@@ -83,7 +67,7 @@
   background-color: $white;
   border-radius: 0.625rem;
   box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
-  transition: 0.5s; /*is this required?*/
+//   transition: 0.5s; 
   width: 20.625rem;
   height: 27.5rem;
   align-content: end;
@@ -97,7 +81,7 @@
     padding: 2.5rem 1.25rem;
     border-radius: 0 0 0.625rem 0.625rem;
     display: flex;
-    flex-wrap: wrap; /*maybe delete*/
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
     text-align: left;
@@ -133,7 +117,7 @@
 /*call to action*/
 .cta {
   display: flex;
-  flex-wrap: wrap; /*maybe delete*/
+  flex-wrap: wrap; 
   justify-content: space-evenly;
   margin-top: 6.25rem;
   margin-bottom: 6.25rem;
@@ -141,14 +125,14 @@
     width: 26%;
   }
   &__title {
-    @extend .message-title;
+    @include message-title;
   }
   &__text {
-    @extend .message-text;
+    @include message-text;
   }
   &__icons {
     display: flex;
-    flex-wrap: wrap; /*maybe delete*/
+    flex-wrap: wrap; 
     justify-content: space-between;
     margin-bottom: 2.5rem;
   }
@@ -159,6 +143,9 @@
     position: relative;
     background-image: url("../assets/images/coldbrewbackground.png");
     background-size: cover;
+    &:hover .cta__image {   /*instructions say can must rotate with hover over box/line image - otherwise I would just have this hover on image without a child selector, which isn't nice with nesting*/
+            animation: spin 2s linear infinite; 
+      }
   }
   &__border {
     position: absolute;
@@ -171,31 +158,27 @@
   &__image {
     height: 17.5rem;
     transform: rotate(0deg);
-    &:hover {
-      animation: spin 2s linear infinite;
-    }
   }
   &__banner {
-    width: 70%; /*style guide said 90% but it looked extra long*/
-    margin: auto;
+    width: 65%; /*style guide said 90% but it looked extra long*/
     padding: 2.5rem 0;
     margin-top: 12.5rem;
     margin-bottom: 6.25rem;
     @include contrast-box;
     animation: flash 2.5s ease infinite;
   }
-  &__text {
+  &__discount-text {
     @include regular-font(2.8125rem);
   }
   &__button-container {
-    @extend .button-base;
+    @include button-base;
   }
 }
 
 .footer {
   background-color: $nitro-pink;
   display: flex;
-  flex-wrap: wrap; /*,maybe delete*/
+//   flex-wrap: wrap;
   justify-content: space-between;
   overflow: hidden;
   &__content {

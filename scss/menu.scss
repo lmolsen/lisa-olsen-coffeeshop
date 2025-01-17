@@ -1,4 +1,6 @@
-@use "./partials/global" as *;
+@use "./partials/global";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
 
 .hero {
   background-image: url("../assets/images/coffee-circle.jpg");
@@ -72,7 +74,7 @@
   &__description {
     font-style: italic;
     color: $graphite;
-    width: 28.5%;
+    width: 26%;
     margin: auto;
     padding: 0.25rem 0;
   }
