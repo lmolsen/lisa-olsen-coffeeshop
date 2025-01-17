@@ -1,227 +1,224 @@
-@use './partials/global' as *;
+@use "./partials/global" as *;
 
-/*extensions*/
+/*extends*/
 .message-title {
-    margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .message-text {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .button-base {
-    position: relative;
-    width: 11.25rem;
-    height: 3.75rem;
-    background-color: $nitro-blue;
-    padding: 1.25rem;
-    margin-bottom: 5rem;
+  position: relative;
+  width: 11.25rem;
+  height: 3.75rem;
+  background-color: $nitro-blue;
+  padding: 1.25rem;
+  margin-bottom: 5rem;
 }
 
 /*classes*/
-.button { 
-    cursor: pointer;
-    color: $white;
-    @include regular-font (1.3125rem);
-    text-transform: uppercase;
-    background-color: transparent;
-    position: absolute;
-    @include full-size;
-    border: solid .125rem $graphite;
-    left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
-    top: -0.3125rem;
-    /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
-    &:active {
-        left: 0;
-        top: 0;
-    }
+.button {
+  cursor: pointer;
+  color: $white;
+  @include regular-font(1.3125rem);
+  text-transform: uppercase;
+  background-color: transparent;
+  position: absolute;
+  @include full-size;
+  border: solid 0.125rem $graphite;
+  left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
+  top: -0.3125rem;
+  /*I am not using transition or animation here because it isn't helpful for the instant and simple translation*/
+  &:active {
+    left: 0;
+    top: 0;
+  }
 }
 
 .hero {
-    background-color: $nitro-pink;
-    padding: 2.5rem 12.5rem 2.5rem 8.75rem;
-    &__container {
-        display: flex;
-        flex-wrap: wrap; /*maybe delete*/
-        justify-content: space-between;
-        align-items: center;
-    }
-    &__message {
-        width: 25%;
-    }
-    &__title
-    {
-        @extend .message-title;
-    }
-    &__text {
-        @extend .message-text;
-    }
-    &__button-container
-    {
-        @extend .button-base;
-    }
+  background-color: $nitro-pink;
+  padding: 2.5rem 12.5rem 2.5rem 8.75rem;
+  &__container {
+    display: flex;
+    flex-wrap: wrap; /*maybe delete*/
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__message {
+    width: 25%;
+  }
+  &__title {
+    @extend .message-title;
+  }
+  &__text {
+    @extend .message-text;
+  }
+  &__button-container {
+    @extend .button-base;
+  }
 }
 
 .product {
-    text-align: center;
-    background-color: $light-gray;
-    &__title {
-        margin-bottom: 3.75rem;
-        padding-top: 3.75rem;
-    }
-    &__cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin: 0 12.5rem;
-    }
-    &__button-container
-    {
-        @extend .button-base;
-        display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
-    }
+  text-align: center;
+  background-color: $light-gray;
+  &__title {
+    margin-bottom: 3.75rem;
+    padding-top: 3.75rem;
+  }
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 12.5rem;
+  }
+  &__button-container {
+    @extend .button-base;
+    display: inline-block; /*Do i have to change this to flex? causes me mucho problems*/
+  }
 }
 
 .card {
-    background-color: $white;
-    border-radius: .625rem;
-    box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0,0,0,0.25);
-    transition: 0.5s;
-    width: 20.625rem;
-    height: 27.5rem;
-    align-content: end;
-    margin-bottom: 5rem;
-    &__img {
-        height: 17.5rem;
-        padding: 1.25rem;
-    }
-    &__details {
-        background-color:$nitro-pink;
-        padding: 2.5rem 1.25rem;
-        border-radius: 0 0 .625rem .625rem;
-        display: flex;
-        flex-wrap: wrap;         /*maybe delete*/
-        justify-content: space-between;
-        align-items: center; 
-        text-align: left;
-    }
-    &_quantity {
-        color: $gray;
-    }
-    &__price {
-        color: $nitro-blue;
-        @include bold-font (2.0625rem); /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
-    }
+  background-color: $white;
+  border-radius: 0.625rem;
+  box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
+  transition: 0.5s; /*is this required?*/
+  width: 20.625rem;
+  height: 27.5rem;
+  align-content: end;
+  margin-bottom: 5rem;
+  &__img {
+    height: 17.5rem;
+    padding: 1.25rem;
+  }
+  &__details {
+    background-color: $nitro-pink;
+    padding: 2.5rem 1.25rem;
+    border-radius: 0 0 0.625rem 0.625rem;
+    display: flex;
+    flex-wrap: wrap; /*maybe delete*/
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+  &_quantity {
+    color: $gray;
+  }
+  &__price {
+    color: $nitro-blue;
+    @include bold-font(2.0625rem); /*Coffee Shop 4 says it is a paragraph, but size appears equal to h3*/
+  }
 }
 
 /*animations */
 @keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes flash {
-    0% {
-        background: $graphite;
-    }
-    50% {
-        background: $nitro-blue;
-    }
-    100% {
-        background: $graphite;
-    }
+  0% {
+    background: $graphite;
+  }
+  50% {
+    background: $nitro-blue;
+  }
+  100% {
+    background: $graphite;
+  }
 }
 
 /*call to action*/
 .cta {
+  display: flex;
+  flex-wrap: wrap; /*maybe delete*/
+  justify-content: space-evenly;
+  margin-top: 6.25rem;
+  margin-bottom: 6.25rem;
+  &__container {
+    width: 26%;
+  }
+  &__title {
+    @extend .message-title;
+  }
+  &__text {
+    @extend .message-text;
+  }
+  &__icons {
     display: flex;
-    flex-wrap: wrap;  /*maybe delete*/
-    justify-content: space-evenly;
-    margin-top: 6.25rem;
+    flex-wrap: wrap; /*maybe delete*/
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+  &__background {
+    width: 25rem;
+    height: 25rem;
+    text-align: center;
+    position: relative;
+    background-image: url("../assets/images/coldbrewbackground.png");
+    background-size: cover;
+  }
+  &__border {
+    position: absolute;
+    @include full-size;
+    align-content: center;
+    border: solid 0.3125rem $nitro-blue;
+    top: -1.25rem;
+    left: -1.25rem;
+  }
+  &__image {
+    height: 17.5rem;
+    transform: rotate(0deg);
+    &:hover {
+      animation: spin 2s linear infinite;
+    }
+  }
+  &__banner {
+    width: 70%; /*style guide said 90% but it looked extra long*/
+    margin: auto;
+    padding: 2.5rem 0;
+    margin-top: 12.5rem;
     margin-bottom: 6.25rem;
-    &__container {
-        width: 26%;
-    }
-    &__title {
-        @extend .message-title;
-    }
-    &__text {
-        @extend .message-text;
-    }
-    &__icons { 
-        display: flex;
-        flex-wrap: wrap;  /*maybe delete*/
-        justify-content: space-between;
-        margin-bottom: 2.5rem;
-    }
-    &__background {
-        width: 25rem;
-        height: 25rem;
-        text-align: center;
-        position: relative;
-        background-image:url("../assets/images/coldbrewbackground.png");
-        background-size: cover;
-    }
-    &__border {
-        position: absolute;
-        @include full-size;
-        align-content: center;
-        border: solid .3125rem $nitro-blue;
-        top: -1.25rem;
-        left: -1.25rem;
-    }
-    &__image {
-        height: 17.5rem;
-        transform: rotate(0deg);
-        &:hover {
-            animation: spin 2s linear infinite;
-        }
-    }
-    &__banner {
-        width: 70%; /*style guide said 90% but it looked extra long*/
-        margin: auto;
-        padding: 2.5rem 0;
-        margin-top: 12.5rem;
-        margin-bottom: 6.25rem;
-        @include contrast-box;
-        animation: flash 2.5s ease infinite;
-    }
-    &__discount {
-        @include regular-font (2.8125rem);
-    }
-    &__button-container {
-        @extend .button-base;
-    }
+    @include contrast-box;
+    animation: flash 2.5s ease infinite;
+  }
+  &__text {
+    @include regular-font(2.8125rem);
+  }
+  &__button-container {
+    @extend .button-base;
+  }
 }
 
 .footer {
-    background-color: $nitro-pink;
-    display: flex;
-    flex-wrap: wrap; /*,maybe delete*/
-    justify-content: space-between;
-    overflow: hidden;
-    &__content {
-        text-align: left;
-        margin: 5rem 0;
-    }
-    &__heading {
-        margin-bottom: 1.25rem;
-    }
-    &__logo {
-        opacity: 0.25;
-        width: 7.5rem;
-    }
-    &__logo--top {
-        align-self: start;
-        padding-top: 1.25rem;
-        position: relative;
-        left: -2.5rem; 
-    }
-    &__logo--bottom {
-        align-self: end;
-        padding-bottom: 1.25rem;
-        position: relative;
-        right: -2.5rem;
-    }
+  background-color: $nitro-pink;
+  display: flex;
+  flex-wrap: wrap; /*,maybe delete*/
+  justify-content: space-between;
+  overflow: hidden;
+  &__content {
+    text-align: left;
+    margin: 5rem 0;
+  }
+  &__heading {
+    margin-bottom: 1.25rem;
+  }
+  &__logo {
+    opacity: 0.25;
+    width: 7.5rem;
+  }
+  &__logo--top {
+    align-self: start;
+    padding-top: 1.25rem;
+    position: relative;
+    left: -2.5rem;
+  }
+  &__logo--bottom {
+    align-self: end;
+    padding-bottom: 1.25rem;
+    position: relative;
+    right: -2.5rem;
+  }
 }

@@ -1,117 +1,121 @@
 /*variables*/
-$nitro-blue: #5BACC3;
-$nitro-pink: #FFF0ED;
+$nitro-blue: #5bacc3;
+$nitro-pink: #fff0ed;
 $graphite: #393939;
 $gray: #909090;
-$light-gray: #F7F7F7;
-$white: #FFF;
+$light-gray: #f7f7f7;
+$white: #fff;
 
 /*mixins*/
-@mixin contrast-box { /*should I switch this back to extend?*/
-    background-color: $graphite;
-    color: $white;
-    text-align: center;
+@mixin contrast-box {
+  /*should I switch this back to extend?*/
+  background-color: $graphite;
+  color: $white;
+  text-align: center;
 }
 
-@mixin full-size {  /*should I switch this back to extend?*/
-    width: 100%;
-    height: 100%;
+@mixin full-size {
+  /*should I switch this back to extend?*/
+  width: 100%;
+  height: 100%;
 }
 
-@mixin regular-font ($font-size) {
-    font-weight: 400;
-    font-size: $font-size;
+@mixin regular-font($font-size) {
+  font-weight: 400;
+  font-size: $font-size;
 }
 
-@mixin light-font ($font-size) {
-    font-weight: 300;
-    font-size: $font-size;
+@mixin light-font($font-size) {
+  font-weight: 300;
+  font-size: $font-size;
 }
 
-@mixin bold-font ($font-size) {
-    font-weight: 700;
-    font-size: $font-size;
+@mixin bold-font($font-size) {
+  font-weight: 700;
+  font-size: $font-size;
 }
 
 @mixin highlight {
-    color: $white;
-    background-color: $nitro-blue;
+  color: $white;
+  background-color: $nitro-blue;
 }
 
 /*selection highlight*/
 ::selection {
-    @include highlight;
+  @include highlight;
 }
 
 ::-moz-selection {
-    @include highlight;
+  @include highlight;
 }
 
 /*basic tags*/
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body  {
-    font-family: 'Open Sans';
-    font-weight: 400;
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
 }
 
-h1, h2 {
-    @include light-font(3.75rem);
+h1,
+h2 {
+  @include light-font(3.75rem);
 }
 
 h3 {
-    @include light-font(2.0625rem);
+  @include light-font(2.0625rem);
 }
 
 p {
-   @include regular-font(1.125rem);
+  @include regular-font(1.125rem);
 }
 
-ul, li {
-    display: inline-block; /*ADD flex - squishes them in more*/
-    list-style-type: none;
+ul,
+li {
+  display: inline-block; /*ADD flex - squishes them in more*/
+  list-style-type: none;
 }
 
 /*classes*/
 /*pixels work best here*/
 .icon {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 /*main menu navigation*/
 .navbar {
-    background-color: $nitro-pink;
-    width: 100%;
-    height: 7rem; /*CHECK HEIGHT but why????*/
-    padding: 0 1.25rem;
-    display: flex;
-    flex-wrap: wrap;  /*maybe delete*/
-    justify-content: space-between;
-    align-items: center;
-    &__link {
-        color:$graphite;
-        text-decoration: none;
-            &:hover {
-                color: $nitro-blue;
-            }
-    } 
-    &__logo {
-        vertical-align: text-bottom;
+  background-color: $nitro-pink;
+  width: 100%;
+  height: 7rem; /*CHECK HEIGHT but why????*/
+  padding: 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap; /*maybe delete*/
+  justify-content: space-between;
+  align-items: center;
+  &__link {
+    color: $graphite;
+    text-decoration: none;
+    &:hover {
+      color: $nitro-blue;
     }
-    &__heading {
-        display: inline-block; /*ADD flex - wrecks it*/
-        color: $graphite;
-        line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
-    }
-    &__item {
-        @include regular-font(1.3125rem);
-        padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
-        text-transform: uppercase;
-        text-decoration: none;
-    }
+  }
+  &__logo {
+    vertical-align: text-bottom;
+  }
+  &__heading {
+    display: inline-block; /*ADD flex - wrecks it*/
+    color: $graphite;
+    line-height: 3.125rem; /*LINE HEIGHT flex direction row??? do I need this?*/
+  }
+  &__item {
+    @include regular-font(1.3125rem);
+    padding: 1.25rem 1.25rem 0 1.25rem; /*hrmmmm, top margin is suspect*/
+    text-transform: uppercase;
+    text-decoration: none;
+  }
 }
