@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin regular-font($font-size) {
     font-weight: 400;
     font-size: $font-size;

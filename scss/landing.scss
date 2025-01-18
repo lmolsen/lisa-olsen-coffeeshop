@@ -2,6 +2,25 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 
+/*animations */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flash {
+  0% {
+    background: $graphite;
+  }
+  50% {
+    background: $nitro-blue;
+  }
+  100% {
+    background: $graphite;
+  }
+}
+
 /*classes*/
 .button {
   cursor: pointer;
@@ -59,7 +78,7 @@
   }
   &__button-container {
     @include button-base;
-    display: inline-block; /*Simpler to use here than flex*/
+    display: inline-block; /*flex not required here*/
   }
 }
 
@@ -67,7 +86,7 @@
   background-color: $white;
   border-radius: 0.625rem;
   box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
-//   transition: 0.5s; 
+  //   transition: 0.5s;
   width: 20.625rem;
   height: 27.5rem;
   align-content: end;
@@ -81,7 +100,7 @@
     padding: 2.5rem 1.25rem;
     border-radius: 0 0 0.625rem 0.625rem;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     text-align: left;
@@ -95,29 +114,10 @@
   }
 }
 
-/*animations */
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes flash {
-  0% {
-    background: $graphite;
-  }
-  50% {
-    background: $nitro-blue;
-  }
-  100% {
-    background: $graphite;
-  }
-}
-
 /*call to action*/
 .cta {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 6.25rem;
   margin-bottom: 6.25rem;
@@ -132,7 +132,7 @@
   }
   &__icons {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 2.5rem;
   }
@@ -143,9 +143,10 @@
     position: relative;
     background-image: url("../assets/images/coldbrewbackground.png");
     background-size: cover;
-    &:hover .cta__image {   /*instructions say can must rotate with hover over box/line image - otherwise I would just have this hover on image without a child selector, which isn't nice with nesting*/
-            animation: spin 2s linear infinite; 
-      }
+    /*instructions say can must rotate with hover over box/line image - otherwise I would just have this :hover in &__image without a descdendant selector*/
+    &:hover .cta__image {
+      animation: spin 2s linear infinite;
+    }
   }
   &__border {
     position: absolute;
@@ -178,7 +179,7 @@
 .footer {
   background-color: $nitro-pink;
   display: flex;
-//   flex-wrap: wrap;
+  //   flex-wrap: wrap;
   justify-content: space-between;
   overflow: hidden;
   &__content {
