@@ -14,7 +14,9 @@
 }
 
 /*basic tags*/
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -49,11 +51,35 @@ li {
   list-style-type: none;
 }
 
-/*classes*/
+a {
+  text-decoration: none;
+}
+
 /*pixels work best here*/
 .icon {
   width: 50px;
   height: 50px;
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.3125rem;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: solid 0.125rem #393939;
+  right: 0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
+  bottom: 0.3125rem;
+}
+.button:active {
+  right: 0;
+  bottom: 0;
 }
 
 /*main menu navigation*/
@@ -67,7 +93,6 @@ li {
 }
 .navbar__link {
   color: #393939;
-  text-decoration: none;
   display: flex;
   align-items: center;
 }
@@ -76,12 +101,12 @@ li {
 }
 .navbar__heading {
   color: #393939;
-  padding-bottom: 5px; /*confirm if you want this*/
+  padding-bottom: 0.3125rem;
 }
 .navbar__item {
   font-weight: 400;
   font-size: 1.3125rem;
-  padding: 1.25rem 1.25rem 0 1.25rem; /*confirm this option*/
+  padding: 1.25rem 1.25rem 0 1.25rem;
   text-transform: uppercase;
 }
 
@@ -93,7 +118,7 @@ li {
   background-size: cover;
   align-content: center;
 }
-.hero__container {
+.hero__box {
   background-color: #393939;
   color: #fff;
   text-align: center;
@@ -113,8 +138,8 @@ li {
   width: 100%;
   height: 100%;
   border: solid 0.3125rem #5bacc3;
-  left: -0.9375rem;
-  top: -0.9375rem;
+  right: 0.9375rem;
+  bottom: 0.9375rem;
 }
 
 /*submenu navigation*/

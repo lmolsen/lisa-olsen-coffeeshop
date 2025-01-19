@@ -22,24 +22,6 @@
 }
 
 /*classes*/
-.button {
-  cursor: pointer;
-  color: $white;
-  @include regular-font(1.3125rem);
-  text-transform: uppercase;
-  background-color: transparent;
-  position: absolute;
-  @include full-size;
-  border: solid 0.125rem $graphite;
-  left: -0.3125rem; /*guidelines say 15px increments, but that seemed too large*/
-  top: -0.3125rem;
-  /*I am not using transition or animation below because it isn't helpful for the instant and simple translation*/
-  &:active {
-    left: 0;
-    top: 0;
-  }
-}
-
 .hero {
   background-color: $nitro-pink;
   padding: 2.5rem 12.5rem 2.5rem 8.75rem;
@@ -58,7 +40,7 @@
   &__text {
     @include message-text;
   }
-  &__button-container {
+  &__button-base {
     @include button-base;
   }
 }
@@ -73,12 +55,12 @@
   &__cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    // margin: 0 12.5rem;
+    justify-content: center;
   }
-  &__button-container {
+
+  &__button-base {
     @include button-base;
-    display: inline-block; /*flex not required here*/
+    display: inline-block;
   }
 }
 
@@ -86,11 +68,10 @@
   background-color: $white;
   border-radius: 0.625rem;
   box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
-  //   transition: 0.5s;
   width: 20.625rem;
   height: 27.5rem;
   align-content: end;
-  margin-bottom: 5rem;
+  margin: 0 3.75rem 5rem 3.75rem;
   &__img {
     height: 17.5rem;
     padding: 1.25rem;
@@ -122,7 +103,7 @@
   margin-top: 6.25rem;
   margin-bottom: 6.25rem;
   &__container {
-    width: 26%;
+    width: 25%;
   }
   &__title {
     @include message-title;
@@ -143,8 +124,7 @@
     position: relative;
     background-image: url("../assets/images/coldbrewbackground.png");
     background-size: cover;
-    /*instructions say can must rotate with hover over box/line image - otherwise I would just have this :hover in &__image without a descdendant selector*/
-    &:hover .cta__image {
+    &:hover .cta__img {
       animation: spin 2s linear infinite;
     }
   }
@@ -156,7 +136,7 @@
     top: -1.25rem;
     left: -1.25rem;
   }
-  &__image {
+  &__img {
     height: 17.5rem;
     transform: rotate(0deg);
   }
@@ -171,7 +151,7 @@
   &__discount-text {
     @include regular-font(2.8125rem);
   }
-  &__button-container {
+  &__button-base {
     @include button-base;
   }
 }
@@ -179,11 +159,9 @@
 .footer {
   background-color: $nitro-pink;
   display: flex;
-  //   flex-wrap: wrap;
   justify-content: space-between;
   overflow: hidden;
   &__content {
-    text-align: left;
     margin: 5rem 0;
   }
   &__heading {
@@ -197,12 +175,12 @@
     align-self: start;
     padding-top: 1.25rem;
     position: relative;
-    left: -2.5rem;
+    right: 2.5rem;
   }
   &__logo--bottom {
     align-self: end;
     padding-bottom: 1.25rem;
     position: relative;
-    right: -2.5rem;
+    left: 2.5rem;
   }
 }

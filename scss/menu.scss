@@ -9,7 +9,7 @@
   background-position: center;
   background-size: cover;
   align-content: center;
-  &__container {
+  &__box {
     @include contrast-box;
     height: 12.5rem;
     width: 18.75rem;
@@ -26,8 +26,8 @@
     position: absolute;
     @include full-size;
     border: solid 0.3125rem $nitro-blue;
-    left: -0.9375rem;
-    top: -0.9375rem;
+    right: 0.9375rem;
+    bottom: 0.9375rem;
   }
 }
 
